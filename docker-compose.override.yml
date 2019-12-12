@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__OrderDatabase=Data Source=XXX;Initial Catalog=Order.Test;User Id=XXX;Password=XXX;
+    ports:
+      - "80"

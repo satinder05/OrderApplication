@@ -1,0 +1,5 @@
+Scaffold command to create db context for existing db:
+scaffold-Dbcontext 'Data Source=alpha-www-crm.makeitmine.local;Initial Catalog=Order.Test;Trusted_Connection=Yes;' Microsoft.EntityFrameworkCore.sqlserver -ContextDir C:\GitHub\OrderApiOnContainer\OrderApi\Persistence -outputDir C:\GitHub\OrderApiOnContainer\OrderApi\Domain\Entities
+
+Enable Docker after installing:
+https://stackoverflow.com/questions/39684974/docker-for-windows-error-hardware-assisted-virtualization-and-data-execution-p
