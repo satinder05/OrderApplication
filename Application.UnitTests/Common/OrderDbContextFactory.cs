@@ -1,6 +1,7 @@
 ﻿using Persistence;
 using System;
 using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
 
 namespace Application.UnitTests.Common
 {
@@ -14,6 +15,14 @@ namespace Application.UnitTests.Common
 
             var context = new OrderTestContext(options);
             context.Database.EnsureCreated();
+
+            context.Customers.AddRange(new[] {
+                new Customer { Name = "Test Customer1", Email = "Test.Customer1@test.com.au" },
+                new Customer {  Name = "Test Customer2", Email = "Test.Customer2@test.com.au"},
+                new Customer {  Name = "Test Customer3", Email = "Test.Customer3@test.com.au" },
+            });
+
+            context.SaveChanges();
 
             return context;
         }

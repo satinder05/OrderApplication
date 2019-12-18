@@ -1,9 +1,7 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Exceptions;
+using Application.Common.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33,7 +31,7 @@ namespace Application.Customers.Commands
 
                 if (entity == null)
                 {
-                    throw new Exception("Customer Not Found");
+                    throw new NotFoundException(nameof(Customer), request.Id);
                 }
 
                 entity.Name = request.Name;
