@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Application.UnitTests.Customers.Commands
 {
-    public class CreateCustomerCommandTests : TestBase
+    public class CreateCustomerCommandTests : CommandTestBase
     {
         [Fact]
         public async Task Handle_GivenValidRequest_ShouldCreateCustomer()

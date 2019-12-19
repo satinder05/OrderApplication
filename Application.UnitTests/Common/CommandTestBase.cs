@@ -1,12 +1,13 @@
 ﻿using Persistence;
+using System;
 
 namespace Application.UnitTests.Common
 {
-    public class TestBase
+    public class CommandTestBase : IDisposable
     {
         protected readonly OrderTestContext _context;
 
-        public TestBase()
+        public CommandTestBase()
         {
             _context = OrderDbContextFactory.Create();
         }
