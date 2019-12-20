@@ -1,9 +1,7 @@
-﻿using Application.Common.Interfaces;
+﻿using Application.Common.Exceptions;
+using Application.Common.Interfaces;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,7 +9,7 @@ namespace Application.Customers.Commands
 {
     public class UpdateCustomerCommand
     {
-        public long Id { get; set; }
+        public long CustomerId { get; set; }
         public short Status { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -29,11 +27,11 @@ namespace Application.Customers.Commands
             public async Task<Customer> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
             {
                 var entity = await _orderContext.Customers
-                    .SingleOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
+                    .SingleOrDefaultAsync(c => c.Id == request.CustomerId, cancellationToken);
 
                 if (entity == null)
                 {
-                    throw new Exception("Customer Not Found");
+                    throw new NotFoundException(nameof(Customer), request.CustomerId);
                 }
 
                 entity.Name = request.Name;

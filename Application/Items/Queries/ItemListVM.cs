@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Application.Items.Query
+namespace Application.Items.Queries
 {
     public  class ItemListVM
     {

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Items.Query
+namespace Application.Items.Queries
 {
     public class GetItemsListQuery
     {

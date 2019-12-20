@@ -2,7 +2,7 @@
 using AutoMapper;
 using Domain.Entities;
 
-namespace Application.Items.Query
+namespace Application.Items.Queries
 {
     public class ItemDetailVM : IMapFrom<Item>
     {
