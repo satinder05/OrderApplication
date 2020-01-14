@@ -39,6 +39,8 @@ namespace API
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
 
+            services.AddCors();
+
             services
                 .AddControllers(options =>
                 {
@@ -59,6 +61,8 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
 
             var swaggerOptions = new SwaggerOptions();
             Configuration.GetSection(nameof(SwaggerOptions)).Bind(swaggerOptions);
