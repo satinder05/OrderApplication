@@ -24,7 +24,7 @@ namespace API.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]CreateCustomerCommand request)
+        public async Task<IActionResult> Create([FromBody]CreateCustomerCommand request)
         {
             var result = await new CreateCustomerCommand.CreateCustomerCommandHandler(_context).Handle(request, CancellationToken.None);
             return Ok(result);
